@@ -1,11 +1,11 @@
-let todoList = JSON.parse(localStorage.getItem('todoList')) || [];
+let todoList1 = JSON.parse(localStorage.getItem('todoList')) || [];
 
         function renderTodoList() {
             let todoListElement = document.getElementById('todo-list');
             todoListElement.innerHTML = '';
 
-            for (let i = 0; i < todoList.length; i++) {
-                let todoItem = todoList[i];
+            for (let i = 0; i < todoList1.length; i++) {
+                let todoItem = todoList1[i];
                 let listItem = document.createElement('li');
                 listItem.classList.add('todo-item');
 
@@ -32,7 +32,7 @@ let todoList = JSON.parse(localStorage.getItem('todoList')) || [];
         
 
 function saveTodoList() {
-    localStorage.setItem('todoList', JSON.stringify(todoList));
+    localStorage.setItem('todoList', JSON.stringify(todoList1));
 }
 
 function addItem() {
@@ -45,36 +45,36 @@ function addItem() {
             completed: false
         };
 
-            todoList.push(todoItem);
+            todoList1.push(todoItem);
             saveTodoList();
             renderTodoList();
             inputElement.value = '';
         }
 }
 
-        // Function to toggle completion of an item
+    // Function to toggle completion of an item
         function toggleCompletion(index) {
-            todoList[index].completed = !todoList[index].completed;
+            todoList1[index].completed = !todoList1[index].completed;
             saveTodoList();
             renderTodoList();
 
-            // Remove completed items
-            // if (todoList[index].completed) {
-            //     todoList.splice(index, 1);
-            //     saveTodoList();
-            //     renderTodoList();
-            // }
+            //Remove completed items
+            if (todoList1[index].completed) {
+                todoList1.splice(index, 1);
+                saveTodoList();
+                renderTodoList();
+            }
         }
 
 // Function to sort the to-do list
 function sortItems() {
-    todoList.sort(function (a, b) {
-        let nameA = a.name.toUpperCase();
-        let nameB = b.name.toUpperCase();
+    todoList1.sort(function (a, b) {
+        let nameA = a.name
+        let nameB = b.name
         
-        if (nameA < nameB) {
+        if (nameA > nameB) {
                 return -1;
-            }if (nameA > nameB) {
+            }if (nameA < nameB) {
                 return 1;
                 }
                 return 0;
@@ -90,3 +90,4 @@ document.getElementById('sort').addEventListener('click', sortItems);
 
 // Initial rendering of the to-do list
 renderTodoList();
+saveTodoList();
