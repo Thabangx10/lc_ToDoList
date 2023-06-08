@@ -101,7 +101,7 @@ h1 {
 }
 */
 
-* {
+/* {
     box-sizing: border-box;
 }
 
@@ -183,38 +183,133 @@ h1 {
     display: flex;
     justify-content: flex-end;
     margin-top: 20px;
+} */
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-
-@media (max-width: 480px) {
-    .container {
-        padding: 10px;
+body{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main{
+    width: 80%;
+    height: 50vh;
+}
+.container{
+    color: #fff;
+    border: 1px solid #000;
+    background-color: grey;
+    width: 100%;
+    height: auto;
+    min-width: 250px;
+    min-height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 3px;
+    padding: 5px;
+}
+h2{
+    margin-bottom: 1.5rem;
+    background-image: linear-gradient(#0000007c, #0000006b), url(https://i.postimg.cc/DzdfgKCC/Cafe-Con-Leche-vs-Cafe-Au-Lait.jpg);
+    width: 80%;
+    text-align: center;
+    padding: 3px;
+    text-shadow: #000 3px 3px 3px;
+    text-decoration: line-through;
+    border-radius: 5px;
+}
+button{
+    color: #000;
+    background-color: lightgrey;
+    padding: 3px;
+    border: 1px solid #000;
+    border-radius: 3px;
+}
+button:hover{
+    cursor: pointer;
+    background-color: rgb(234, 234, 234);
+    box-shadow: 2px 2px 5px #000;
+}
+input{
+    padding: 2px;
+    border-radius: 2px;
+    width: 62%;
+    text-align: center;
+}
+form{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#result-display{
+    width: 90%;
+    height: fit-content;
+    margin: 55px;
+    ma
+}
+.todo-item{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(131, 144, 166);
+    margin: 5px 0;
+    padding: 0 5px;
+}
+.todo-item-checkbox{
+    border: 2px solid blue;
+    width: 10%;
+}
+.close-btn{
+    width: 10%;
+    background-color: firebrick;
+}
+p{
+    color: #000;
+}
+@media screen and (max-width: 480px) {
+    form{
+        flex-direction: column;
     }
-
-    .task {
-        font-size: 16px;
+    button{
+        width: 100%;
+        margin: 5px 0;
+    }
+    input{
+        width: 100%;
     }
 }
-
 </style>
 <body>
-    <section class="section">
-        <form>
+    <section class="container">
+        <form  class="form">
             <header>
                 <h1 id="brand">
                     To-do List
                 </h1>
                 <div class="input-container">
                     <div class="row">
-                        <button id="sort">SORT</button>
-                        <input type="text" id="input" placeholder="---ENTER---">
-                        <button id="add">ADD</button>
+                        <button id="sort-btn">SORT</button>
+                        <input type="text" id="todo-input" placeholder="---ENTER---">
+                        <button id="add-btn">ADD</button>
                     </div>
                 </div>
             </header>
         </form>
         <div class="row">
             <ul id="todo-list">
-
+                <div id="result-display">
+                    <!-- JavaScript external content -->
+                </div>
             </ul>
         </div>
     </section>
